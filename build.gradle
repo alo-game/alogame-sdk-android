@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.alo-game'
-version = '1.4.16'
+version = '1.4.17'
 
 repositories {
     google()
@@ -18,7 +18,7 @@ publishing {
 
             groupId   = 'com.github.alo-game'
             artifactId = 'alogame-sdk-android'
-            version   = '1.4.16'
+            version   = '1.4.17'
 
             pom.withXml {
                 def depMgmtNode = asNode().appendNode('dependencyManagement').appendNode('dependencies')
