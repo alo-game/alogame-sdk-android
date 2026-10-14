@@ -56,7 +56,7 @@ dependencyResolutionManagement {
 
 ```kotlin title="app/build.gradle.kts"
 dependencies {
-    implementation("com.github.alo-game:alogame-sdk-android:1.4.18")
+    implementation("com.github.alo-game:alogame-sdk-android:1.4.19")
 
     // Required for Google login — AGP implementation scope is not transitive,
     // so these must be declared explicitly even though they're in the SDK's POM.
@@ -70,7 +70,7 @@ dependencies {
 
 ```groovy title="app/build.gradle"
 dependencies {
-    implementation 'com.github.alo-game:alogame-sdk-android:1.4.18'
+    implementation 'com.github.alo-game:alogame-sdk-android:1.4.19'
 
     // Required for Google login
     implementation 'androidx.credentials:credentials:1.3.0'
