@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.alo-game'
-version = '1.5.0'
+version = '1.5.1'
 
 repositories {
     google()
@@ -18,7 +18,7 @@ publishing {
 
             groupId   = 'com.github.alo-game'
             artifactId = 'alogame-sdk-android'
-            version   = '1.5.0'
+            version   = '1.5.1'
 
             pom.withXml {
                 def depMgmtNode = asNode().appendNode('dependencyManagement').appendNode('dependencies')
@@ -139,6 +139,14 @@ publishing {
                 d21.appendNode('artifactId', 'af-android-sdk')
                 d21.appendNode('version', '7.0.1')
                 d21.appendNode('scope', 'runtime')
+                def d22 = depsNode.appendNode('dependency')
+                d22.appendNode('groupId', 'com.google.firebase')
+                d22.appendNode('artifactId', 'firebase-messaging-ktx')
+                d22.appendNode('scope', 'runtime')
+                def d23 = depsNode.appendNode('dependency')
+                d23.appendNode('groupId', 'com.google.firebase')
+                d23.appendNode('artifactId', 'firebase-analytics-ktx')
+                d23.appendNode('scope', 'runtime')
             }
         }
     }
