@@ -56,7 +56,7 @@ dependencyResolutionManagement {
 
 ```kotlin title="app/build.gradle.kts"
 dependencies {
-    implementation("com.github.alo-game:alogame-sdk-android:1.5.3")
+    implementation("com.github.alo-game:alogame-sdk-android:1.5.4")
 
     // Required for Google login — AGP implementation scope is not transitive,
     // so these must be declared explicitly even though they're in the SDK's POM.
@@ -70,7 +70,7 @@ dependencies {
 
 ```groovy title="app/build.gradle"
 dependencies {
-    implementation 'com.github.alo-game:alogame-sdk-android:1.5.3'
+    implementation 'com.github.alo-game:alogame-sdk-android:1.5.4'
 
     // Required for Google login
     implementation 'androidx.credentials:credentials:1.3.0'
@@ -261,53 +261,6 @@ AlogameSdk.init(this, YOUR_GAME_ID);        // production (default)
 :::warning
 `debugEnv = true` also enables verbose HTTP request/response logging. Never ship a release build with it on.
 :::
-
-### Alternative: `oeg_config.json`
-
-Prefer a config file (e.g. to vary `game_id` per build flavor, or to set advanced options like `debug_env`, Sentry, or local SNS fallbacks without a code change)? Place one at `app/src/main/assets/oeg_config.json` and call the file-based overload instead:
-
-```kotlin title="Kotlin"
-AlogameSdk.init(this) // reads app/src/main/assets/oeg_config.json
-```
-
-```java title="Java"
-AlogameSdk.init(this); // reads app/src/main/assets/oeg_config.json
-```
-
-```json title="app/src/main/assets/oeg_config.json"
-{
-  "core": {
-    "game_id": YOUR_GAME_ID
-  }
-}
-```
-
-<details>
-<summary>Full reference (all optional local keys)</summary>
-
-```json
-{
-  "core": {
-    "game_id": YOUR_GAME_ID,
-    "debug_env": true
-  },
-  "logging": {
-    "enable_timber": true,
-    "sentry_dsn": ""
-  },
-  "sns": {
-    "google_web_client_id": "YOUR_GOOGLE_WEB_CLIENT_ID",
-    "facebook_app_id": "YOUR_FACEBOOK_APP_ID",
-    "facebook_client_token": "YOUR_FACEBOOK_CLIENT_TOKEN",
-    "fb_login_protocol_scheme": "fbYOUR_FACEBOOK_APP_ID",
-    "tiktok_client_key": "YOUR_TIKTOK_CLIENT_KEY"
-  }
-}
-```
-
-> The `sns` block supplements server-delivered config. Values in `strings.xml`/`AndroidManifest.xml` (required by Facebook SDK) take precedence over this block.
-
-</details>
 
 ## 7. Quick Smoke Test
 
